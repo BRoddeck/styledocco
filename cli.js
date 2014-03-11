@@ -191,10 +191,16 @@ var cli = function(options) {
 
   mkdirp(options.out);
 
+  var template = resourcesDir + 'docs.jade';
+  // Use custom `template`.
+  if (options.template) {
+      template = options.template;
+  }
+
   // Fetch all static resources.
   async.parallel({
     template: function(cb) {
-      fs.readFile(resourcesDir + 'docs.jade', 'utf8', function(err, contents) {
+      fs.readFile(template, 'utf8', function(err, contents) {
         if (err != null) return cb(err);
         cb(null, jade.compile(contents));
       });

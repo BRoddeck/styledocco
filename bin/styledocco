@@ -35,6 +35,7 @@ var options = optimist
   .usage('Usage: $0 [options] [INPUT]')
   .describe('name', 'Name of the project').alias('n', 'name')
   .describe('out', 'Output directory').alias('o', 'out')['default']('out', 'docs')
+  .describe('template', 'Custom jade template')
   .describe('preprocessor', 'Custom preprocessor command')
   .describe('include', 'Extra CSS/JavaScript to include in previews')
   .describe('minify', 'Minify CSS/JavaScript')['default']('minify', true)
